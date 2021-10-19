@@ -1,6 +1,10 @@
 <div class="">
-  <ol>
-    <li *ngFor="let product of products" class="bg-blue-300 p-2 mb-4">
+  <ol class="flex">
+    <li
+      *ngFor="let product of products"
+      class="bg-white p-4 mb-4 border-none rounded-xl"
+    >
+      <img src="{{ product.photo }}" alt="" />
       <p>ID: {{ product.id }}</p>
       <p>Name: {{ product.name }}</p>
       <p>Category: {{ product.categoryId }}</p>

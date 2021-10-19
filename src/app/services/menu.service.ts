@@ -30,7 +30,8 @@ export class MenuService {
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vel culpa quas quod voluptas repellat eius architecto libero aspernatur. Voluptatum?',
       price: '23.32',
-      photo: '',
+      photo:
+        'https://www.comidastipicaschilenas.com/wp-content/uploads/2020/04/completo-italiano.jpg',
     },
     {
       id: '2',
@@ -39,7 +40,8 @@ export class MenuService {
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vel culpa quas quod voluptas repellat eius architecto libero aspernatur. Voluptatum?',
       price: '23.32',
-      photo: '',
+      photo:
+        'https://www.comidastipicaschilenas.com/wp-content/uploads/2020/04/completo-italiano.jpg',
     },
     {
       id: '3',
@@ -48,7 +50,8 @@ export class MenuService {
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vel culpa quas quod voluptas repellat eius architecto libero aspernatur. Voluptatum?',
       price: '23.32',
-      photo: '',
+      photo:
+        'https://www.comidastipicaschilenas.com/wp-content/uploads/2020/04/completo-italiano.jpg',
     },
   ];
 
