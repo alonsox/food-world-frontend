@@ -23,17 +23,26 @@
         md:px-2 md:flex md:flex-col md:w-48
       "
     >
-      <a href="#" class="sidebar-link">All products</a>
       <a
-        *ngFor="let category of menuService.getCategories() | async"
         href="#"
         class="sidebar-link"
+        [class.active]="selectedCategory == null"
+        (click)="loadAllProducts()"
+        >All products</a
+      >
+      <a
+        *ngFor="let category of menuService.getCategories() | async"
+        class="sidebar-link"
+        [class.active]="selectedCategory == category"
+        (click)="loadProductsByCategory(category)"
         >{{ category.name }}</a
       >
     </nav>
   </section>
 
-  <section class="p-4">
-    <h1>Menu contents go here</h1>
+  <section class="px-4">
+    <app-products-list
+      [products]="(theProducts | async) || []"
+    ></app-products-list>
   </section>
 </div>
