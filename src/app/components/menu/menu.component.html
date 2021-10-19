@@ -14,6 +14,8 @@
     >
       categories
     </h1>
+    <!-- CATEGORIES' LINKS -->
+    <!-- TODO: make a carrousel with the links on a phone -->
     <nav
       class="
         flex flex-row flex-nowrap
@@ -21,14 +23,13 @@
         md:px-2 md:flex md:flex-col md:w-48
       "
     >
-      <a href="#" class="sidebar-link">Link 1</a>
-      <a href="#" class="sidebar-link">Link 2</a>
-      <a href="#" class="sidebar-link">Link 3</a>
-      <a href="#" class="sidebar-link">Link 4</a>
-      <a href="#" class="sidebar-link">Link 5</a>
-      <a href="#" class="sidebar-link">Link 6</a>
-      <a href="#" class="sidebar-link">Link 7</a>
-      <a href="#" class="sidebar-link">Link 8</a>
+      <a href="#" class="sidebar-link">All products</a>
+      <a
+        *ngFor="let category of menuService.getCategories() | async"
+        href="#"
+        class="sidebar-link"
+        >{{ category.name }}</a
+      >
     </nav>
   </section>
 

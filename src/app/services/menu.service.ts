@@ -7,30 +7,62 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class MenuService {
+  private categories = [
+    {
+      id: '1',
+      name: 'Category 1',
+    },
+    {
+      id: '2',
+      name: 'Category 2',
+    },
+    {
+      id: '3',
+      name: 'Category 3',
+    },
+  ];
+
+  private products = [
+    {
+      id: '1',
+      categoryId: 1,
+      name: 'Product 1',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vel culpa quas quod voluptas repellat eius architecto libero aspernatur. Voluptatum?',
+      price: '23.32',
+      photo: '',
+    },
+    {
+      id: '2',
+      categoryId: 2,
+      name: 'Product 2',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vel culpa quas quod voluptas repellat eius architecto libero aspernatur. Voluptatum?',
+      price: '23.32',
+      photo: '',
+    },
+    {
+      id: '3',
+      categoryId: 3,
+      name: 'Product 3',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et vel culpa quas quod voluptas repellat eius architecto libero aspernatur. Voluptatum?',
+      price: '23.32',
+      photo: '',
+    },
+  ];
+
   constructor() {}
 
   getCategories(): Observable<Category[]> {
-    return of([
-      {
-        id: '1',
-        name: 'Category 1',
-      },
-      {
-        id: '2',
-        name: 'Category 1',
-      },
-      {
-        id: '3',
-        name: 'Category 1',
-      },
-    ]);
+    return of(this.categories);
   }
 
   getAllProducts(): Observable<Product[]> {
-    return of([]);
+    return of(this.products);
   }
 
   getProductsByCategory(categoryId: number): Observable<Product[]> {
-    return of([]);
+    return of(this.products.filter((p) => p.categoryId === categoryId));
   }
 }
