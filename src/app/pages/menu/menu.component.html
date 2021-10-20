@@ -1,1 +1,7 @@
-<p>menu works!</p>
+<div class="p-4 max-w-7xl mx-auto container flex flex-col md:flex md:flex-row">
+  <app-categories-list></app-categories-list>
+
+  <app-products-list
+    [products]="(menuService.products | async) || []"
+  ></app-products-list>
+</div>

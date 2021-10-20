@@ -1,0 +1,39 @@
+<section class="bg-white border-none rounded-lg p-3">
+  <h1
+    class="
+      hidden
+      md:block
+      p-2
+      text-base
+      font-bold
+      tracking-wider
+      text-gray-800
+      uppercase
+    "
+  >
+    categories
+  </h1>
+  <!-- CATEGORIES' LINKS -->
+  <!-- TODO: make a carrousel with the links on a phone -->
+  <nav
+    class="
+      flex flex-row flex-nowrap
+      overflow-x-auto
+      md:px-2 md:flex md:flex-col md:w-48
+    "
+  >
+    <a
+      class="sidebar-link"
+      [class.active]="selectedCategory == null"
+      (click)="loadAllProducts()"
+      >All</a
+    >
+    <a
+      *ngFor="let category of menuService.getCategories() | async"
+      class="sidebar-link"
+      [class.active]="selectedCategory == category"
+      (click)="loadProductsByCategory(category)"
+      >{{ category.name }}</a
+    >
+  </nav>
+</section>

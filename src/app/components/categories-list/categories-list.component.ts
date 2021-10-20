@@ -5,13 +5,12 @@ import { Product } from 'src/app/models/product';
 import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss'],
+  selector: 'app-categories-list',
+  templateUrl: './categories-list.component.html',
+  styleUrls: ['./categories-list.component.scss'],
 })
-export class MenuComponent implements OnInit {
+export class CategoriesListComponent implements OnInit {
   selectedCategory: Category | null = null;
-  theProducts: Observable<Product[]> = of([]);
 
   constructor(public menuService: MenuService) {}
 
@@ -21,13 +20,11 @@ export class MenuComponent implements OnInit {
 
   loadAllProducts() {
     this.selectedCategory = null;
-    this.theProducts = this.menuService.getAllProducts();
+    this.menuService.loadAllProducts();
   }
 
   loadProductsByCategory(category: Category) {
     this.selectedCategory = category;
-    this.theProducts = this.menuService.getProductsByCategory(
-      parseInt(category.id)
-    );
+    this.menuService.loadProductsByCategory(parseInt(category.id));
   }
 }

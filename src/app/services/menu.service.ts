@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
 
@@ -7,7 +7,7 @@ import { Product } from '../models/product';
   providedIn: 'root',
 })
 export class MenuService {
-  private categories = [
+  private _allCategories = [
     {
       id: '1',
       name: 'Category 1',
@@ -27,7 +27,7 @@ export class MenuService {
     },
   ];
 
-  private products = [
+  private _allProducts = [
     {
       id: '1',
       categoryId: 1,
@@ -68,17 +68,25 @@ export class MenuService {
     },
   ];
 
+  private selectedProducts = new BehaviorSubject<Product[]>([]);
+
   constructor() {}
 
+  get products() {
+    return this.selectedProducts.asObservable();
+  }
+
   getCategories(): Observable<Category[]> {
-    return of(this.categories);
+    return of(this._allCategories);
   }
 
-  getAllProducts(): Observable<Product[]> {
-    return of(this.products);
+  loadAllProducts(): void {
+    this.selectedProducts.next(this._allProducts);
   }
 
-  getProductsByCategory(categoryId: number): Observable<Product[]> {
-    return of(this.products.filter((p) => p.categoryId === categoryId));
+  loadProductsByCategory(categoryId: number): void {
+    this.selectedProducts.next(
+      this._allProducts.filter((p) => p.categoryId === categoryId)
+    );
   }
 }
