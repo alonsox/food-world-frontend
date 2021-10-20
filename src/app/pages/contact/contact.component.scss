@@ -1,0 +1,11 @@
+.form-label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.form-control {
+  @apply py-2 px-3 shadow-sm focus:ring-red-500 focus:border-red-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md;
+}
+
+.submit-btn {
+  @apply w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-500 hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500
+}

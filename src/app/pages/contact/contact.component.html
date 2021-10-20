@@ -1,1 +1,37 @@
-<p>contact works!</p>
+<div class="p-2 md:p-4 max-w-7xl container mx-auto">
+  <form
+    class="
+      mx-auto
+      flex flex-col
+      space-y-4
+      max-w-lg
+      bg-white
+      py-2
+      px-4
+      md:py-4 md:px-8
+      border-none
+      rounded-xl
+    "
+  >
+    <h1 class="text-center text-3xl my-3 font-medium text-gray-900">Contact</h1>
+    <div>
+      <label for="name" class="form-label">Your name</label>
+      <input type="text" id="name" class="form-control" />
+    </div>
+    <div>
+      <label for="email" class="form-label">Email</label>
+      <input type="email" id="email" class="form-control" />
+    </div>
+    <div>
+      <label for="message" class="form-label">Message</label>
+      <input type="text" id="message" class="form-control" />
+    </div>
+    <div>
+      <label for="details" class="form-label">More Details</label>
+      <textarea id="details" rows="8" class="form-control"></textarea>
+    </div>
+    <div class="py-3">
+      <button type="submit" class="submit-btn">Send</button>
+    </div>
+  </form>
+</div>
