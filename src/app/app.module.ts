@@ -8,6 +8,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { MenuComponent as MenuPage } from './pages/menu/menu.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     ProductsListComponent,
     HomeComponent,
     ContactComponent,
+    MenuPage,
+    AboutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
