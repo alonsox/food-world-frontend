@@ -12,13 +12,10 @@ import { ProductsListComponent } from './components/products-list/products-list.
     AppComponent,
     NavbarComponent,
     MenuComponent,
-    ProductsListComponent
+    ProductsListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
