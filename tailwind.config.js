@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "about-us-banner": "url('assets/about/banner.jpg')",
+        "home-banner": "url('assets/home/front.jpg')",
       },
     },
   },
