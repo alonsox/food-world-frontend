@@ -25,6 +25,6 @@ export class CategoriesListComponent implements OnInit {
 
   loadProductsByCategory(category: Category) {
     this.selectedCategory = category;
-    this.menuService.loadProductsByCategory(parseInt(category.id));
+    this.menuService.loadProductsByCategory(category.id);
   }
 }
