@@ -13,8 +13,9 @@ import { AboutComponent } from './pages/about/about.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 import { MenuService } from './services/menu-service';
-import { MockMenuService } from './services/mock-menu.service';
 import { ApiMenuService } from './services/api-menu.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MockMenuService } from './services/mock-menu.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,12 @@ import { ApiMenuService } from './services/api-menu.service';
     AboutComponent,
     FooterComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [{ provide: MenuService, useClass: ApiMenuService }],
   bootstrap: [AppComponent],
 })

@@ -8,7 +8,7 @@ import { MenuService } from './menu-service';
   providedIn: 'root',
 })
 export class MockMenuService implements MenuService {
-  private _allCategories: Category[] = [
+  private allCategories: Category[] = [
     {
       id: 1,
       name: 'Category 1',
@@ -28,7 +28,7 @@ export class MockMenuService implements MenuService {
     },
   ];
 
-  private _allProducts = [
+  private allProducts: Product[] = [
     {
       id: '1',
       categoryId: 1,
@@ -78,16 +78,22 @@ export class MockMenuService implements MenuService {
   }
 
   getCategories(): Observable<Category[]> {
-    return of(this._allCategories);
+    console.log('Loading all categories from getCategories');
+
+    return of(this.allCategories);
   }
 
   loadAllProducts(): void {
-    this.selectedProducts.next(this._allProducts);
+    console.log('Loading all products');
+
+    this.selectedProducts.next(this.allProducts);
   }
 
   loadProductsByCategory(categoryId: number): void {
+    console.log(`Loading products with categoryId=${categoryId}`);
+
     this.selectedProducts.next(
-      this._allProducts.filter((p) => p.categoryId === categoryId)
+      this.allProducts.filter((p) => p.categoryId === categoryId)
     );
   }
 }
