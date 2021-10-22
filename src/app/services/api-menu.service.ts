@@ -23,14 +23,10 @@ export class ApiMenuService implements MenuService {
   }
 
   getCategories(): Observable<Category[]> {
-    console.log('Loading all categories from getCategories');
-
     return this.http.get<Category[]>(this.categoriesEndpoint);
   }
 
   loadAllProducts(): void {
-    console.log('Loading all products');
-
     this.http.get<Product[]>(this.productsEndpoint).subscribe(
       (ps) => {
         this.selectedProducts.next(ps);
@@ -42,7 +38,6 @@ export class ApiMenuService implements MenuService {
   }
 
   loadProductsByCategory(categoryId: number): void {
-    console.log(`Loading products with categoryId=${categoryId}`);
     const params = new HttpParams({
       fromObject: {
         category: categoryId,
