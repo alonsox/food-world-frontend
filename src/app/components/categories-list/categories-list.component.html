@@ -25,14 +25,14 @@
     <a
       class="sidebar-link"
       [class.active]="selectedCategory == null"
-      (click)="loadAllProducts()"
+      (click)="fetchAllProducts()"
       >All</a
     >
     <a
-      *ngFor="let category of menuService.getCategories() | async"
+      *ngFor="let category of categories | async"
       class="sidebar-link"
       [class.active]="selectedCategory == category"
-      (click)="loadProductsByCategory(category)"
+      (click)="fetchProductsByCategory(category)"
       >{{ category.name }}</a
     >
   </nav>

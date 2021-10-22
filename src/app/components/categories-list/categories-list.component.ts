@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Category } from 'src/app/models/category';
 import { MenuService } from 'src/app/services/menu-service';
 
@@ -7,21 +8,25 @@ import { MenuService } from 'src/app/services/menu-service';
   templateUrl: './categories-list.component.html',
   styleUrls: ['./categories-list.component.scss'],
 })
-export class CategoriesListComponent implements OnInit {
+export class CategoriesListComponent implements OnInit, OnDestroy {
+  categories!: Observable<Category[]>;
   selectedCategory: Category | null = null;
 
   constructor(public menuService: MenuService) {}
 
   ngOnInit(): void {
-    this.loadAllProducts();
+    this.fetchAllProducts();
+    this.categories = this.menuService.getCategories();
   }
 
-  loadAllProducts() {
+  ngOnDestroy(): void {}
+
+  fetchAllProducts() {
     this.selectedCategory = null;
     this.menuService.loadAllProducts();
   }
 
-  loadProductsByCategory(category: Category) {
+  fetchProductsByCategory(category: Category) {
     this.selectedCategory = category;
     this.menuService.loadProductsByCategory(category.id);
   }

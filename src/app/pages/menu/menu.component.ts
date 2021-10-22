@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/models/product';
 import { MenuService } from 'src/app/services/menu-service';
 
 @Component({
@@ -7,7 +9,11 @@ import { MenuService } from 'src/app/services/menu-service';
   styleUrls: ['./menu.component.scss'],
 })
 export class MenuComponent implements OnInit {
+  menuProducts!: Observable<Product[]>;
+
   constructor(public menuService: MenuService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.menuProducts = this.menuService.products;
+  }
 }

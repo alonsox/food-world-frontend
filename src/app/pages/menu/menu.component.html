@@ -12,6 +12,6 @@
   <app-categories-list></app-categories-list>
 
   <app-products-list
-    [products]="(menuService.products | async) || []"
+    [products]="(menuProducts | async) ?? []"
   ></app-products-list>
 </div>
