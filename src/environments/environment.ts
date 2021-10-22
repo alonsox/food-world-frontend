@@ -2,11 +2,14 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { MenuService } from 'src/app/services/menu-service';
+import { MockMenuService } from 'src/app/services/mock-menu.service';
 import { Environment } from './environment.interface';
 
 export const environment: Environment = {
   production: false,
   apiUrl: 'http://www.localhost:8000',
+  providers: [{ provide: MenuService, useClass: MockMenuService }],
 };
 
 /*

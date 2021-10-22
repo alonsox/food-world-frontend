@@ -16,6 +16,7 @@ import { MenuService } from './services/menu-service';
 import { ApiMenuService } from './services/api-menu.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MockMenuService } from './services/mock-menu.service';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { MockMenuService } from './services/mock-menu.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [{ provide: MenuService, useClass: ApiMenuService }],
+  providers: environment.providers ?? [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
