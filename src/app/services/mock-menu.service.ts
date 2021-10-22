@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Category } from '../models/category';
 import { Product } from '../models/product';
+import { MenuService } from './menu-service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MenuService {
+export class MockMenuService implements MenuService {
   private _allCategories: Category[] = [
     {
       id: 1,

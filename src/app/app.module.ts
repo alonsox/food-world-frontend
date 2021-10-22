@@ -12,6 +12,9 @@ import { MenuComponent } from './pages/menu/menu.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
+import { MenuService } from './services/menu-service';
+import { MockMenuService } from './services/mock-menu.service';
+import { ApiMenuService } from './services/api-menu.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,7 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [],
+  providers: [{ provide: MenuService, useClass: ApiMenuService }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
