@@ -4,6 +4,6 @@ import { Environment } from './environment.interface';
 
 export const environment: Environment = {
   production: true,
-  apiUrl: 'http://www.localhost:8000', // TODO: Change for final URL
+  apiUrl: 'https://food-world-backend.herokuapp.com',
   providers: [{ provide: MenuService, useClass: ApiMenuService }],
 };
